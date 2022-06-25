@@ -5,7 +5,7 @@ export default function Post() {
   let [post, setPost] = useState([]);
   let [postData, setpostData] = useState([]);
 
-  let [inputVal, setInputVal] = useState("");
+  let [inpTerm, setinpTerm] = useState("");
   useEffect(() => {
     function getData() {
       fetch("https://jsonplaceholder.typicode.com/posts")
@@ -18,16 +18,16 @@ export default function Post() {
     }
     getData();
   }, []);
-  let inpTerm;
+
   function inputHandler(e) {
-    inpTerm = e.target.value.toLowerCase();
+    setinpTerm(e.target.value.toLowerCase());
   }
   const search = () => {
+    console.log(inpTerm);
     let filteredData = postData.filter((item, i) =>
       item.title.includes(inpTerm)
     );
     setPost(filteredData);
-    console.log(post);
   };
 
   return (
