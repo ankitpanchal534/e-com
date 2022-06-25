@@ -20,7 +20,7 @@ export default function Post() {
   }, []);
   let inpTerm;
   function inputHandler(e) {
-    inpTerm = e.target.value;
+    inpTerm = e.target.value.toLowerCase();
   }
   const search = () => {
     let filteredData = postData.filter((item, i) =>
